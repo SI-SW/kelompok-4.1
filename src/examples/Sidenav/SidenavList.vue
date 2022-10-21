@@ -92,9 +92,7 @@
         <div class="nav-link">
           <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
             <slot name="icon">
-              <template>
-              <i class="ni ni-collection text-info text-sm opacity-10"></i>
-              </template>
+              <i class="ni ni-user-run text-info text-sm opacity-10"></i>
             </slot>
           </div>
           <span class="nav-link-text ms-1">Sign Out</span>
@@ -144,3 +142,9 @@ export default {
   }
 };
 </script>
+
+<style>
+li.nav-item {
+  cursor: pointer;
+}
+</style>
