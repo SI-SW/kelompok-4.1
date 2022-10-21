@@ -66,7 +66,7 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <li v-if="!signed" class="nav-item">
         <sidenav-item
           url="/auth/signin"
           :class="getRoute() === 'signin' ? 'active' : ''"
@@ -77,7 +77,7 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <li v-if="!signed" class="nav-item">
         <sidenav-item
           url="/auth/signup"
           :class="getRoute() === 'signup' ? 'active' : ''"
@@ -108,6 +108,9 @@ import SidenavItem from "./SidenavItem.vue";
 import SidenavCard from "./SidenavCard.vue";
 import { mapActions } from 'pinia';
 import d$auth from '@/stores/auth';
+import { certCookies } from "@/plugins/cookies";
+
+const { id } = certCookies();
 
 export default {
   name: "SidenavList",
@@ -116,6 +119,7 @@ export default {
   },
   data() {
     return {
+      signed: id,
       title: "Argon Dashboard 2",
       controls: "dashboardsExamples",
       isActive: "active"
