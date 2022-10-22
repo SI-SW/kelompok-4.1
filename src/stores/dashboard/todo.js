@@ -8,7 +8,14 @@ const d$todo = defineStore({
         list: [],
     }),
     actions: {
-
+        async a$add(body) {
+            try {
+              await s$todo.add(body);
+            } catch (e) {
+              console.error('actions todo add error', e);
+              throw e;
+            }
+        },
     },
     getters: {
         
